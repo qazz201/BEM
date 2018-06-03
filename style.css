@@ -29,55 +29,63 @@ body {
   box-sizing: border-box;
   white-space: nowrap;
   line-height: 1.5;
-  transition: max-width 0.2s ease-in;
+  max-width: 2em;
 }
 
-/*
 .container__asideMenu:hover {
   max-width: 100em;
-transition:  max-width 0.7s ease-in;
-}*/
+  transition: max-width 0.7s ease-in;
+}
+
+.container__asideMenu:hover .notificationBadge {
+  position: relative;
+  font-size: 0.7em;
+}
+
+.container__asideMenu:hover .notificationBadge .notificationBadge__warning_style {
+  background: white;
+}
+
+.container__asideMenu:hover .notificationBadge .notificationBadge__success_style {
+  background: white;
+}
+
 /*-------notificationBadge--*/
 .notificationBadge {
   display: inline-block;
-  font-size: 0.7em;
   font-weight: bold;
   vertical-align: middle;
   text-align: center;
-}
-
-.notificationBadge:hover {
-  direction: rtl;
 }
 
 .notificationBadge__warning {
   display: inline-block;
   width: 1.3em;
   height: 1.3em;
-  margin-right: -0.3em;
+  margin-right: -0.4em;
   vertical-align: middle;
 }
 
 .notificationBadge__warning_style {
   color: red;
-  background: white;
+  background: red;
   border-radius: 50%;
-  box-shadow: 2px 0 2px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.5);
 }
 
 .notificationBadge__success {
   display: inline-block;
   width: 1.3em;
   height: 1.3em;
-  margin-right: -0.3em;
+  margin-right: -0.4em;
   vertical-align: middle;
 }
 
 .notificationBadge__success_style {
   color: #398bf7;
-  background: white;
+  background: #398bf7;
   border-radius: 50%;
-  box-shadow: 2px 0 2px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.5);
 }
 
 /*------BLOCK------*/
@@ -89,7 +97,7 @@ transition:  max-width 0.7s ease-in;
  width: initial;
 }*/
 .columnBlock__logo {
-  padding: 6px;
+  padding: 0.2em;
 }
 
 .logo {
@@ -114,16 +122,15 @@ transition:  max-width 0.7s ease-in;
   border-top: 1px solid black;
   white-space: nowrap;
   margin: 0;
-  padding: 6px;
+  padding: 0.4em;
 }
 
 .menu__notificationBadge {
   font-size: 0.3em;
   margin: 0;
   position: absolute;
-  /* margin-left: 0em; */
   left: 0;
-  top: 25%;
+  top: 30%;
 }
 
 .menu__item_has_notificationBadge {
@@ -178,7 +185,7 @@ transition:  max-width 0.7s ease-in;
   align-items: center;
   margin-top: -1px;
   border: 1px solid black;
-  padding: 6px 6px 6px 20px;
+  padding: 0.28em;
 }
 
 .menuRow__item .menu__headline {

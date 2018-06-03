@@ -30,19 +30,30 @@ body {
   border: 1px solid red;
   box-sizing: border-box;
   white-space: nowrap;
-  line-height: 1.5; //  max-width: 2em;
-  transition: max-width 0.2s ease-in;
+  line-height: 1.5;
+  max-width: 2em;
 }
-/*
+
 .container__asideMenu:hover {
   max-width: 100em;
-transition:  max-width 0.7s ease-in;
-}*/
-/*-------notificationBadge--*/
+  transition: max-width 0.7s ease-in;
+}
 
+.container__asideMenu:hover .notificationBadge {
+  position: relative;
+  font-size: 0.7em;
+
+  .notificationBadge__warning_style {
+    background: white;
+  }
+
+  .notificationBadge__success_style {
+    background: white;
+  }
+}
+/*-------notificationBadge--*/
 .notificationBadge {
   display: inline-block;
-  font-size: 0.7em;
   font-weight: bold;
   //direction: ltr;
   vertical-align: middle;
@@ -50,37 +61,37 @@ transition:  max-width 0.7s ease-in;
 }
 
 .notificationBadge:hover {
-  direction: rtl;
+  //  direction: rtl;
 }
 
 .notificationBadge__warning {
   display: inline-block;
   width: 1.3em;
   height: 1.3em;
-  margin-right: -0.3em;
+  margin-right: -0.4em;
   vertical-align: middle;
 }
 
 .notificationBadge__warning_style {
   color: red;
-  background: white;
+  background: red;
   border-radius: 50%;
-  box-shadow: 2px 0 2px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 2px -1px rgba(0,0,0,0.5);
 }
 
 .notificationBadge__success {
   display: inline-block;
   width: 1.3em;
   height: 1.3em;
-  margin-right: -0.3em;
+  margin-right: -0.4em;
   vertical-align: middle;
 }
 
 .notificationBadge__success_style {
   color: #398bf7;
-  background: white;
+  background: #398bf7;
   border-radius: 50%;
-  box-shadow: 2px 0 2px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 2px -1px rgba(0,0,0,0.5);
 }
 /*------BLOCK------*/
 /*.columnBlock {
@@ -90,9 +101,9 @@ transition:  max-width 0.7s ease-in;
 .columnBlock:hover {
  width: initial;
 }*/
-
 .columnBlock__logo {
-  padding: 6px;
+padding : 0.2em;
+//padding-right: 0.2em;
 }
 
 .logo {
@@ -110,23 +121,23 @@ transition:  max-width 0.7s ease-in;
   padding-left: 7px;
 }
 /*-------BLOCK------*/
+
 .menu {
   position: relative;
   list-style-type: none;
   border-top: 1px solid black; // color: red;
   white-space: nowrap;
   margin: 0;
-  padding: 6px;
+  padding: 0.4em;
 }
 
 .menu__notificationBadge {
   font-size: 0.3em;
   margin: 0;
-  //  margin-left:-4em;
   position: absolute;
-  /* margin-left: 0em; */
+  //margin-left: 0.3em;
   left: 0;
-  top: 25%;
+  top: 30%;
 }
 
 .menu__item_has_notificationBadge {
@@ -168,6 +179,7 @@ transition:  max-width 0.7s ease-in;
   color: black;
 }
 /*===================================================*/
+
 .content {
   display: flex;
   flex-direction: column;
@@ -181,7 +193,8 @@ transition:  max-width 0.7s ease-in;
   align-items: center;
   margin-top: -1px;
   border: 1px solid black;
-  padding: 6px 6px 6px 20px;
+  //padding: 4px 6px 4px 20px;
+  padding: 0.28em;
 }
 
 .menuRow__item .menu__headline {
