@@ -235,23 +235,40 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.c
 
   <script>
     var dontNeedInClone = ["columnBlock__menu", "menu__item_hoverItem"];
+    var menuScope;
 
     $(".columnBlock .columnBlock__menu").on("click", function(event) {
       var clickTarget = event.target.parentNode;
 
       $(".columnBlock").find(".menu__item").removeClass("active");
 
+
+
       if ($(clickTarget).hasClass("menu__item")) $(clickTarget).addClass("active");
 
       $(".menuRow").empty();
-      $(this).clone().removeClass("columnBlock__menu").addClass("menuRow__item").appendTo(".menuRow");
+      $(this).clone().removeClass("columnBlock__menu")
+        .addClass("menuRow__item").appendTo(".menuRow");
 
       $(".menuRow .menu__item").removeClass("menu__item_hoverItem");
 
+      menuBuffered = $(this);
     });
 
 
+    $(".menuRow").on("click", function(e) {
+      var clickTarget = e.target.parentNode;
+      $(this).find(".menu__item").removeClass("active")
+      $(clickTarget).addClass("active");
 
+      var indexOfActiveItem = $(clickTarget).index()
+
+      menuBuffered.find('.menu__item').removeClass("active")
+      menuBuffered.children().eq(indexOfActiveItem).addClass("active")
+      console.log(indexOfActiveItem)
+
+
+    })
 
 
 
