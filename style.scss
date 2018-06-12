@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Cousine&subset=cyrillic");
-
 html {
   height: 100%;
 }
@@ -12,12 +11,13 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   font-family: "Cousine", monospace;
-  font-size: 18px;
+  font-size: 14px;
+  cursor: default;
 }
 
 .container {
   display: flex;
-  height: 100%; // border: 1px solid blue;
+  height: 100%;
 }
 
 .container__asideMenu {
@@ -25,7 +25,7 @@ body {
   flex-shrink: 0;
   flex-direction: column;
   overflow-y: auto;
-  overflow-x: hidden; //border: 1px solid red;
+  overflow-x: hidden;
   box-sizing: border-box;
   white-space: nowrap;
   line-height: 1.5;
@@ -52,10 +52,20 @@ body {
   background: white;
 }
 
-.container__asideMenu .shortcutNameBlock_disabled {
-  display: none;
+.container__asideMenu .menu__item.active .menu__itemShortcutName {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 1.7s;
+  padding-right: 2px;
 }
+
+.container__asideMenu:hover .menu__item.active .shortcutNameBlock {
+  opacity: 0;
+  transition: opacity 0.5s; //display:none;
+}
+
 /*-------notificationBadge--*/
+
 .notificationBadge {
   display: inline-block;
   font-weight: bold;
@@ -92,14 +102,18 @@ body {
   border-radius: 50%;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.5);
 }
+
 /*------BLOCK------*/
+
 /*.columnBlock {
   box-sizing: border-box;
 }*/
+
 /*
 .columnBlock:hover {
  width: initial;
 }*/
+
 .columnBlock__logo {
   padding: 0.2em;
 }
@@ -120,7 +134,9 @@ body {
   font-size: inherit;
   padding-left: 7px;
 }
+
 /*-------BLOCK------*/
+
 .menu {
   position: relative;
   list-style-type: none;
@@ -136,6 +152,7 @@ body {
   position: absolute;
   left: 0;
   top: 30%;
+  transition: 0.2s;
 }
 
 .menu__item_has_notificationBadge {
@@ -155,7 +172,7 @@ body {
 }
 
 .menu__item {
-  padding-left: 1.8em; //transition: 0.5s;
+  padding-left: 1.8em;
 }
 
 .menu__item_hoverItem:hover {
@@ -167,7 +184,7 @@ body {
 }
 
 .menu.columnBlock__menu .menu__item.active {
-  background: #398bf7;
+  background: linear-gradient(to right, #398bf7, #41b5f491);
   color: white;
 }
 
@@ -183,19 +200,20 @@ body {
   text-decoration: none;
   color: black;
 }
+
 /*===================================================*/
+
 .content {
   display: flex;
   flex-direction: column;
-  box-sizing: border-box; // border: 1px solid black;
+  box-sizing: border-box;
   flex: 1;
   background: #ebeff3;
 }
 
 .menuRow__item {
   display: flex;
-  align-items: center; // margin-top: -1px;
-  //border: 1px solid black;
+  align-items: center;
   padding: 0.25em;
   background: white;
 }
@@ -223,31 +241,32 @@ body {
   padding-bottom: 0.65em;
   border-bottom: 2px solid #398bf7;
 }
+
 /*====================================================*/
+
 .content__text {
   position: relative;
   width: 100%;
-  height: 100%; // border: 1px solid green;
+  height: 100%;
 }
+
 /*===================================================*/
+
 .spinner {
   padding: 5px;
   width: 3em;
-  height: 3em; //text-align:center;
-  //padding:5px;
+  height: 3em;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto; //border:1px solid black;
+  margin: auto;
   z-index: 1;
   font-size: 2em;
 }
 
 .spinner__text {
-  //display:inline-block;
-  //position:absolute;
   position: relative;
   font-weight: bold;
   font-size: 0.9em;
@@ -255,7 +274,7 @@ body {
   top: 40%;
   width: 100%;
   box-sizing: border-box;
-  margin: auto; // border:1px solid black;
+  margin: auto;
   text-align: center;
   word-break: break-all;
   color: white;
@@ -267,7 +286,7 @@ body {
 
 .spinner__text span:nth-child(1) {
   display: inline-block;
-  animation: wordsWave 1s linear infinite; //animation-delay: 0.1s;
+  animation: wordsWave 1s linear infinite;
   animation-direction: alternate-reverse;
 }
 
@@ -291,6 +310,7 @@ body {
   animation-delay: 0.3s;
   animation-direction: alternate-reverse;
 }
+
 @keyframes wordsWave {
   0% {
     transform: translateY(-0.4em);
@@ -298,7 +318,6 @@ body {
     opacity: 0;
     filter: blur(1.5px);
   }
-
   100% {
     transform: translateY(0.3em);
     color: #41b5f4;
@@ -318,7 +337,7 @@ body {
   left: 0;
   top: 0;
   position: absolute;
-  animation: roundRight 3s linear infinite; // animation-direction: alternate-reverse;
+  animation: roundRight 3s linear infinite;
 }
 
 .spinner:after {
@@ -332,76 +351,69 @@ body {
   top: 0;
   position: absolute;
   animation: roundLeft 3s linear infinite;
-  z-index: 2; // animation-direction: alternate-reverse;
+  z-index: 2;
 }
+
 @keyframes roundRight {
   0% {
-    filter: hue-rotate( 0deg) blur(1.1px);
-    -webkit-transform: rotate( -360deg);
+    filter: hue-rotate(0deg) blur(1.1px);
+    -webkit-transform: rotate(-360deg);
   }
-
   50% {
     /* #1 */
-    box-shadow:0 1px 1px rgba(255, 0, 170, 0.85),
-    /* #2 */
-    0 5px 0 -3px rgba(255, 0, 255, 0.55),
-    /* #3 */
-    0 5px 1px -3px #eee;
+    box-shadow: 0 1px 1px rgba(255, 0, 170, 0.85), 0 5px 0 -3px rgba(255, 0, 255, 0.55), 0 5px 1px -3px #eee;
   }
-
   100% {
     filter: hue-rotate(360deg) blur(1px);
-    -webkit-transform: rotate( 0deg);
+    -webkit-transform: rotate(0deg);
   }
 }
+
 @keyframes roundLeft {
   0% {
     filter: hue-rotate(0deg) blur(1.1px);
-    -webkit-transform: rotate( 720deg);
+    -webkit-transform: rotate(720deg);
   }
-
   70% {
     /* #1 */
-    box-shadow:0 -1px 1px rgba(255, 255, 0, 0.95),
-    /* #2*/
-    0 -5px 0 -3px #eee,
-    /* #3 */
-    0 -5px 1px -3px rgba(0, 255, 196, 0.75);
+    box-shadow: 0 -1px 1px rgba(255, 255, 0, 0.95), 0 -5px 0 -3px #eee, 0 -5px 1px -3px rgba(0, 255, 196, 0.75);
   }
-
   100% {
     filter: hue-rotate(720deg) blur(1px);
-    -webkit-transform: rotate( 0deg);
+    -webkit-transform: rotate(0deg);
   }
 }
+
 /*========================================================*/
+
 .shortcutNameBlock {
-  border-right: 2px solid red;
   display: inline-block;
-  color: red;
-  background: white;
+  background: #fcfbfc;
+  text-align: right;
 }
 
 .menu__itemShortcutName {
+  border-right: 0.3em solid #398bf7;
   position: absolute;
   right: 0;
+  padding-left: 1em;
+  display: none;
+  opacity: 0;
 }
 
-.menu__link:focus-within+.shortcutNameBlock {
+/*
+.menu__link:focus-within + .shortcutNameBlock {
   display: inline-block;
-}
+}*/
+
 @media screen and (min-width: 320px) {
-  body {
-    font-size: calc(12px + 6 * ((100vw - 320px) / 680));
-  }
-}
-@media screen and (max-height: 520px) {
   body {
     font-size: calc(10px + 6 * ((100vw - 320px) / 680));
   }
 }
 
-@media screen and (min-width: 1000px) {
+ 
+@media screen and (min-width: 1200px) {
   body {
     font-size: 18px;
   }

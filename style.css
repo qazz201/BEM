@@ -11,7 +11,8 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   font-family: "Cousine", monospace;
-  font-size: 18px;
+  font-size: 14px;
+  cursor: default;
 }
 
 .container {
@@ -51,8 +52,16 @@ body {
   background: white;
 }
 
-.container__asideMenu .shortcutNameBlock_disabled {
-  display: none;
+.container__asideMenu .menu__item.active .menu__itemShortcutName {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 1.7s;
+  padding-right: 2px;
+}
+
+.container__asideMenu:hover .menu__item.active .shortcutNameBlock {
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 /*-------notificationBadge--*/
@@ -138,6 +147,7 @@ body {
   position: absolute;
   left: 0;
   top: 30%;
+  transition: 0.2s;
 }
 
 .menu__item_has_notificationBadge {
@@ -169,7 +179,7 @@ body {
 }
 
 .menu.columnBlock__menu .menu__item.active {
-  background: #398bf7;
+  background: linear-gradient(to right, #398bf7, #41b5f491);
   color: white;
 }
 
@@ -368,34 +378,31 @@ body {
 
 /*========================================================*/
 .shortcutNameBlock {
-  border-right: 2px solid red;
   display: inline-block;
-  color: red;
-  background: white;
+  background: #fcfbfc;
+  text-align: right;
 }
 
 .menu__itemShortcutName {
+  border-right: 0.3em solid #398bf7;
   position: absolute;
   right: 0;
+  padding-left: 1em;
+  display: none;
+  opacity: 0;
 }
 
+/*
 .menu__link:focus-within + .shortcutNameBlock {
   display: inline-block;
-}
-
+}*/
 @media screen and (min-width: 320px) {
-  body {
-    font-size: calc(12px + 6 * ((100vw - 320px) / 680));
-  }
-}
-
-@media screen and (max-height: 520px) {
   body {
     font-size: calc(10px + 6 * ((100vw - 320px) / 680));
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   body {
     font-size: 18px;
   }
