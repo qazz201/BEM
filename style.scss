@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Cousine&subset=cyrillic");
+
+.cbalink {
+  display: none;
+}
+
 html {
   height: 100%;
 }
@@ -31,7 +36,7 @@ body {
   line-height: 1.5;
   max-width: 2em;
   background: #fcfbfc;
-  transition: 0.6s;
+  transition: max-width 0.6s;
 }
 
 .container__asideMenu:hover {
@@ -61,11 +66,9 @@ body {
 
 .container__asideMenu:hover .menu__item.active .shortcutNameBlock {
   opacity: 0;
-  transition: opacity 0.5s; //display:none;
+  transition: opacity 0.5s;
 }
-
 /*-------notificationBadge--*/
-
 .notificationBadge {
   display: inline-block;
   font-weight: bold;
@@ -102,18 +105,14 @@ body {
   border-radius: 50%;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.5);
 }
-
 /*------BLOCK------*/
-
 /*.columnBlock {
   box-sizing: border-box;
 }*/
-
 /*
 .columnBlock:hover {
  width: initial;
 }*/
-
 .columnBlock__logo {
   padding: 0.2em;
 }
@@ -134,9 +133,7 @@ body {
   font-size: inherit;
   padding-left: 7px;
 }
-
 /*-------BLOCK------*/
-
 .menu {
   position: relative;
   list-style-type: none;
@@ -152,7 +149,6 @@ body {
   position: absolute;
   left: 0;
   top: 30%;
-  transition: 0.2s;
 }
 
 .menu__item_has_notificationBadge {
@@ -200,9 +196,7 @@ body {
   text-decoration: none;
   color: black;
 }
-
 /*===================================================*/
-
 .content {
   display: flex;
   flex-direction: column;
@@ -241,17 +235,13 @@ body {
   padding-bottom: 0.65em;
   border-bottom: 2px solid #398bf7;
 }
-
 /*====================================================*/
-
 .content__text {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
 }
-
 /*===================================================*/
-
 .spinner {
   padding: 5px;
   width: 3em;
@@ -310,7 +300,6 @@ body {
   animation-delay: 0.3s;
   animation-direction: alternate-reverse;
 }
-
 @keyframes wordsWave {
   0% {
     transform: translateY(-0.4em);
@@ -318,6 +307,7 @@ body {
     opacity: 0;
     filter: blur(1.5px);
   }
+
   100% {
     transform: translateY(0.3em);
     color: #41b5f4;
@@ -353,39 +343,39 @@ body {
   animation: roundLeft 3s linear infinite;
   z-index: 2;
 }
-
 @keyframes roundRight {
   0% {
     filter: hue-rotate(0deg) blur(1.1px);
     -webkit-transform: rotate(-360deg);
   }
+
   50% {
     /* #1 */
     box-shadow: 0 1px 1px rgba(255, 0, 170, 0.85), 0 5px 0 -3px rgba(255, 0, 255, 0.55), 0 5px 1px -3px #eee;
   }
+
   100% {
     filter: hue-rotate(360deg) blur(1px);
     -webkit-transform: rotate(0deg);
   }
 }
-
 @keyframes roundLeft {
   0% {
     filter: hue-rotate(0deg) blur(1.1px);
     -webkit-transform: rotate(720deg);
   }
+
   70% {
     /* #1 */
     box-shadow: 0 -1px 1px rgba(255, 255, 0, 0.95), 0 -5px 0 -3px #eee, 0 -5px 1px -3px rgba(0, 255, 196, 0.75);
   }
+
   100% {
     filter: hue-rotate(720deg) blur(1px);
     -webkit-transform: rotate(0deg);
   }
 }
-
 /*========================================================*/
-
 .shortcutNameBlock {
   display: inline-block;
   background: #fcfbfc;
@@ -400,20 +390,106 @@ body {
   display: none;
   opacity: 0;
 }
+/*===================content__searchPanel======================================*/
+.searchPanel {
+  background: white;
+}
 
+.button {
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  background: #398bf773;
+  outline: none;
+  font-size: inherit;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.buttonGroup__btn {
+  border: none;
+  padding: 0.2em 1.2em;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+}
+/*---------------------------------------------*/
+.button_theme_lightBlue {
+  background: transparent;
+  border: 1px solid #398bf7;
+  color: #398bf7;
+}
+
+.button_theme_lightGreen {
+  color: white;
+  background: #2dd1ac;
+  border: 1px solid transparent;
+}
+/*--------------------------------------------*/
+.searchPanel__btn {
+  white-space: nowrap;
+  margin-left: 5px;
+}
+
+.content__searchPanel {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-left: 3%;
+  margin-bottom: 5px;
+  padding: 0.7em 1.5em;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.searchPanel__inputContainer {
+  display: inline-block;
+  border: solid 1px #ccc;
+  //margin-left:10px;
+  border-radius: 5px;
+  padding: 2px 5px 2px 2px;
+  white-space: nowrap;
+  //height:1.2em;
+}
+
+.searchPanel__input {
+  font-size: inherit;
+  padding-left: 10px;
+  margin-right: -0.4em;
+  outline: none;
+  border: none;
+  width: 7em;
+  transition: width 0.5s;
+}
+
+.searchPanel__input:focus {
+  width: 10em;
+  transition: width 0.5s;
+}
+/*==================content__data=======================================*/
+.content__data {
+  margin-left: 3%;
+  height: 450px;
+  background: white;
+}
+/*=========================================================*/
 /*
 .menu__link:focus-within + .shortcutNameBlock {
   display: inline-block;
 }*/
-
 @media screen and (min-width: 320px) {
   body {
-    font-size: calc(10px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(11px + 6* ((100vw - 320px) / 680));
   }
 }
-
- 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 620px) {
+  body {
+    font-size: calc(7px + 5 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1400px) {
   body {
     font-size: 18px;
   }

@@ -92,27 +92,21 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.c
           <a class="menu__link" href="#">Список
              </a>
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">СП</span>
-
           </div>
         </li>
         <li class="menu__item  menu__item_hoverItem">
           <a class="menu__link" href="#">Шаблоны отчетов
              </a>
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">ШO</span>
-
           </div>
         </li>
         <li class="menu__item  menu__item_hoverItem">
           <a class="menu__link" href="#">Конструктор отчетов
              </a>
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">KO</span>
-
           </div>
         </li>
       </ul>
@@ -137,36 +131,28 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.c
           <a class="menu__link" href="#">Записи
              </a>
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">ЗС</span>
-
           </div>
         </li>
         <li class="menu__item  menu__item_hoverItem active">
           <a class="menu__link" href="#">Атрибуты
              </a>
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">АТ</span>
-
           </div>
         </li>
         <li class="menu__item  menu__item_hoverItem">
           <a class="menu__link" href="#">Словари
              </a>
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">СЛ</span>
-
           </div>
         </li>
         <li class="menu__item  menu__item_hoverItem">
           <a class="menu__link" href="#">Выборки
              </a>
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">ВИ</span>
-
           </div>
         </li>
       </ul>
@@ -233,31 +219,22 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.c
           <a class="menu__link" href="#">Статистика
               </a>
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">СТ</span>
-
           </div>
         </li>
         <li class="menu__item  menu__item_hoverItem">
           <a class="menu__link" href="#">Шаблоны отчетов
               </a>
-
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">ШO</span>
-
           </div>
         </li>
         <li class="menu__item  menu__item_hoverItem">
           <a class="menu__link" href="#">Конструктор отчетов
               </a>
-
           <div class="shortcutNameBlock menu__itemShortcutName ">
-
             <span class="shortcutNameBlock__item menu__headline ">KO</span>
-
           </div>
-
         </li>
       </ul>
     </aside>
@@ -299,80 +276,104 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.c
         </ul>
       </div>
 
+      <!--
       <div class="content__text">
         <div class="spinner">
           <p class="spinner__text"><span>W</span><span>a</span><span>i</span><span>t</span></p>
         </div>
 
       </div>
+      ------>
+
+
+      <div class="searchPanel content__searchPanel">
+        <div class="searchPanel__inputContainer">
+
+          <input class="searchPanel__input" placeholder="Search">
+          <i class="fa fa-search" style="color:#398bf7"></i>
+        </div>
+
+        <div class="buttonGroup searchPanel__btn ">
+
+          <button class="button buttonGroup__btn button_theme_lightBlue">Создать группу атрибутов </button>
+          <button class="button buttonGroup__btn button_theme_lightGreen">Создать атрибут </button>
+        </div>
+
+      </div>
+
+
+      <div class="content__data">
+        dlkldkgldklkdglk ldkg ldkglk
+
+        <button class="button ">Создать группу атрибутов </button>
+        <button class="button ">Создать атрибут </button>
+
+      </div>
+
     </section>
 
-
   </div>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script>
-  var dontNeedInClone = ["columnBlock__menu", "menu__item_hoverItem"];
-var menuBuffered;
-var indexMenuBlock = 0;
+    var dontNeedInClone = ["columnBlock__menu", "menu__item_hoverItem"];
+    var menuBuffered;
+    var indexMenuBlock = 0;
 
-$(".columnBlock .columnBlock__menu")
-  .on("click", function(event) {
-      var clickTarget = event.target.parentNode;
+    $(".columnBlock .columnBlock__menu")
+      .on("click", function(event) {
+          var clickTarget = event.target.parentNode;
 
-      $(".columnBlock")
-        .find(".menu__item")
-        .removeClass("active");
+          $(".columnBlock")
+            .find(".menu__item")
+            .removeClass("active");
 
-      if ($(clickTarget).hasClass("menu__item")) {
-        $(clickTarget)
-          .addClass("active");
+          if ($(clickTarget).hasClass("menu__item")) {
+            $(clickTarget)
+              .addClass("active");
 
-        $(".menuRow")
-          .empty();
+            $(".menuRow")
+              .empty();
 
-        $(this)
-          .clone()
-          .removeClass("columnBlock__menu")
-          .addClass("menuRow__item")
-          .appendTo(".menuRow");
+            $(this)
+              .clone()
+              .removeClass("columnBlock__menu")
+              .addClass("menuRow__item")
+              .appendTo(".menuRow");
 
-        $(".menuRow .menu__item")
-          .removeClass("menu__item_hoverItem");
-        menuBuffered = $(this);
-      }
-      event.preventDefault();
-      console.log($(this).index());
-    }
+            $(".menuRow .menu__item")
+              .removeClass("menu__item_hoverItem");
+            menuBuffered = $(this);
+          }
+          event.preventDefault();
+          console.log($(this).index());
+        }
 
-  );
+      );
 
-$(".menuRow")
-  .on("click", function(e) {
-    var clickTarget = e.target.parentNode;
-    var indexOfActiveItem = $(clickTarget).index();
+    $(".menuRow")
+      .on("click", function(e) {
+        var clickTarget = e.target.parentNode;
+        var indexOfActiveItem = $(clickTarget).index();
 
-    if ($(clickTarget)
-      .hasClass("menu__item")) {
-      $(this)
-        .find(".menu__item")
-        .removeClass("active");
+        if ($(clickTarget)
+          .hasClass("menu__item")) {
+          $(this)
+            .find(".menu__item")
+            .removeClass("active");
 
-      $(clickTarget)
-        .addClass("active");
+          $(clickTarget)
+            .addClass("active");
 
-      menuBuffered.find('.menu__item')
-        .removeClass("active");
-      menuBuffered.children()
-        .eq(indexOfActiveItem)
-        .addClass("active");
-    }
+          menuBuffered.find('.menu__item')
+            .removeClass("active");
+          menuBuffered.children()
+            .eq(indexOfActiveItem)
+            .addClass("active");
+        }
 
-    //console.log( indexOfActiveItem );
-  })
-
-
+        //console.log( indexOfActiveItem );
+      })
   </script>
 </body>
 
